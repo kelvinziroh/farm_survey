@@ -31,6 +31,10 @@ LEFT JOIN soil_and_crop_features USING (Field_ID)
 LEFT JOIN farm_management_features USING (Field_ID)
 """
 
+# Set the CSV file URLs
+weather_data_URL = "https://raw.githubusercontent.com/Explore-AI/Public-Data/master/Maji_Ndogo/Weather_station_data.csv"
+weather_mapping_data_URL = "https://raw.githubusercontent.com/Explore-AI/Public-Data/master/Maji_Ndogo/Weather_data_field_mapping.csv"
+
 def create_db_engine(db_path):
     """Create a db engine
 
