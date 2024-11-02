@@ -1,5 +1,5 @@
 """
-This module provides functionalities for interacting with a database and importing CSV data.
+Data extraction pipeline: Extract data from SQLite database and CSV URLs.
 
 **Key Functionalities:**
 - **create_db_engine(db_path):** Creates a SQLAlchemy engine to connect to the database
@@ -18,6 +18,7 @@ logger = logging.getLogger("data_ingestion")
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
+
 
 def create_db_engine(db_path):
     """Create a db engine
