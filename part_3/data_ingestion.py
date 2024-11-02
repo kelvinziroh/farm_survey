@@ -19,22 +19,6 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
-# Set the db path
-db_path = 'sqlite:///../assets/mn_farm_survey_small.db'
-
-# Set the SQL query for data extraction from the database
-sql_query = """
-SELECT *
-FROM geographic_features
-LEFT JOIN weather_features USING (Field_ID)
-LEFT JOIN soil_and_crop_features USING (Field_ID)
-LEFT JOIN farm_management_features USING (Field_ID)
-"""
-
-# Set the CSV file URLs
-weather_data_URL = "https://raw.githubusercontent.com/Explore-AI/Public-Data/master/Maji_Ndogo/Weather_station_data.csv"
-weather_mapping_data_URL = "https://raw.githubusercontent.com/Explore-AI/Public-Data/master/Maji_Ndogo/Weather_data_field_mapping.csv"
-
 def create_db_engine(db_path):
     """Create a db engine
 
