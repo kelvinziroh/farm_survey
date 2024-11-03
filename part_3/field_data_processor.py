@@ -16,7 +16,12 @@ class FieldDataProcessor:
     """Transform the data extracted from the database and the CSV file URL."""
 
     def __init__(self, config_params, logging_level="INFO"):
-        """Initialize the Class attributes."""
+        """Initialize the Class attributes.
+        
+        Args:
+            config_params: (dict): Configuration parameters to initialise the class attributes.
+            logging_level: (str, optional): Implement a flexible event logging system for the class. defaults to "INFO".
+        """
         self.db_path = config_params["db_path"]
         self.sql_query = config_params["sql_query"]
         self.columns_to_rename = config_params["columns_to_rename"]
@@ -31,7 +36,12 @@ class FieldDataProcessor:
         self.engine = None
 
     def initialize_logging(self, logging_level):
-        """Sets up logging for this instance of FieldDataProcessor."""
+        """
+        Set up logging for a class instance.
+        
+        Args:
+            logging_level (str): Add convinient logging levels.
+        """
         logger_name = __name__ + ".FieldDataProcessor"
         self.logger = logging.getLogger(logger_name)
         self.logger.propagate = (
@@ -109,7 +119,7 @@ class FieldDataProcessor:
         self.df = self.df.merge(weather_map_df, on="Field_ID", how="left")
 
     def process(self):
-        """Call all methods in the class to transform the data."""
+        """Call all class methods to transform the data."""
         self.ingest_sql_data()
         self.rename_columns()
         self.apply_corrections()
