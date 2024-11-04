@@ -124,4 +124,4 @@ class FieldDataProcessor:
         self.rename_columns()
         self.apply_corrections()
         self.weather_station_mapping()
-        self.df.drop(columns="Unnamed: 0")
+        self.df.drop(columns="Unnamed: 0", inplace=True)
